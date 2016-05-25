@@ -2,8 +2,6 @@
 
 namespace Converter;
 
-require_once(__DIR__ . '/../vendor/autoload.php');
-
 use function Json\jsonToArr;
 use function Json\arrToJson;
 use function Yaml\yamlToArr;
@@ -11,7 +9,7 @@ use function Yaml\arrToYaml;
 use function Ini\iniToArr;
 use function Ini\arrToIni;
 
-function start($file, $formatOutput)
+function startConvert($file, $formatOutput)
 {
     $content = file_get_contents($file);
     $formatOutput = strtolower($formatOutput);
@@ -55,5 +53,3 @@ function start($file, $formatOutput)
 
     file_put_contents(__DIR__ . "/../OUT_$fileName.$formatOutput", $result);
 }
-
-start($argv[1], $argv[2]);

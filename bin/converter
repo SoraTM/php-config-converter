@@ -1,0 +1,5 @@
+#!/bin/bash
+
+args=("$@")
+
+php  src/Convert.php ${args[0]} ${args[1]}

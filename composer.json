@@ -20,6 +20,7 @@
     },
     "autoload": {
         "files": [
+            "src/Converter.php",
             "src/Json.php",
             "src/Yaml.php",
             "src/Ini.php"
