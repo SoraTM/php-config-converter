@@ -1,0 +1,12 @@
+{
+    "name": "soratm/php-config-converter",
+    "description": "Tools for converting config files one to another (xml, yml, json)",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Timur Malikin",
+            "email": "timur.malikin@gmail.com",
+            "role": "Developer"
+        }
+    ]
+}
