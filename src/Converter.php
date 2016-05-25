@@ -14,14 +14,14 @@ use function Ini\arrToIni;
 function start($file, $formatOutput)
 {
     $content = file_get_contents($file);
-
-    $fileNameStruct = explode('.', $file);
-    $formatInput = $fileNameStruct[sizeof($fileNameStruct) - 1];
     $formatOutput = strtolower($formatOutput);
-    $fileName = $fileNameStruct[0];
 
-    var_dump($formatInput);
-    var_dump($formatOutput);
+    $pattern = '/\/{0,1}(?P<fileName>[a-z0-9\s]+).(?P<formatInput>\w+)$/i';
+    $matches = [];
+    preg_match($pattern, $file, $matches);
+
+    $formatInput = $matches['formatInput'];
+    $fileName = $matches['fileName'];
 
     switch ($formatInput) {
         case 'json':
