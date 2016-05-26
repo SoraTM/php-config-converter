@@ -25,5 +25,6 @@
             "src/Yaml.php",
             "src/Ini.php"
         ]
-    }
+    },
+    "bin" : ["bin/Cenvert.php"]
 }
