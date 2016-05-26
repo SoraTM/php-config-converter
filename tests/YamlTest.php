@@ -2,8 +2,8 @@
 
 namespace Yaml\Tests;
 
-use function Yaml\yamlToArr;
-use function Yaml\arrToYaml;
+use function Yaml\yamlDecode;
+use function Yaml\yamlEncode;
 
 class YamlTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,7 +21,7 @@ class YamlTest extends \PHPUnit_Framework_TestCase
             "role" => "Developer" ]
         ]];
 
-        $this->assertEquals($arr, yamlToArr($file));
-        $this->assertEquals($file, arrToYaml($arr));
+        $this->assertEquals($arr, yamlDecode($file));
+        $this->assertEquals($file, yamlEncode($arr));
     }
 }

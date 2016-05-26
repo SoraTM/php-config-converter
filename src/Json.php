@@ -2,12 +2,12 @@
 
 namespace Json;
 
-function jsonToArr($content)
+function jsonDecode($content)
 {
     return json_decode($content, true);
 }
 
-function arrToJson($arr)
+function jsonEncode($arr)
 {
     return json_encode($arr, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "\n";
 }

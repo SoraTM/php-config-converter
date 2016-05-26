@@ -2,8 +2,8 @@
 
 namespace Json\Tests;
 
-use function Json\jsonToArr;
-use function Json\arrToJson;
+use function Json\jsonDecode;
+use function Json\jsonEncode;
 
 class JsonTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,7 +21,7 @@ class JsonTest extends \PHPUnit_Framework_TestCase
             "role" => "Developer" ]
         ]];
 
-        $this->assertEquals($arr, jsonToArr($file));
-        $this->assertEquals($file, arrToJson($arr));
+        $this->assertEquals($arr, jsonDecode($file));
+        $this->assertEquals($file, jsonEncode($arr));
     }
 }

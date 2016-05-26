@@ -4,12 +4,12 @@ namespace Yaml;
 
 use Symfony\Component\Yaml\Yaml;
 
-function yamlToArr($content)
+function yamlDecode($content)
 {
     return Yaml::parse($content);
 }
 
-function arrToYaml($arr)
+function yamlEncode($arr)
 {
     return Yaml::dump($arr);
 }

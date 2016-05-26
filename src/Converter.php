@@ -23,13 +23,13 @@ function startConvert($file, $formatOutput)
 
     switch ($formatInput) {
         case 'json':
-            $arr = jsonToArr($content);
+            $arr = jsonDecode($content);
             break;
         case 'yml':
-            $arr = yamlToArr($content);
+            $arr = yamlDecode($content);
             break;
         case 'ini':
-            $arr = yamlToArr($content);
+            $arr = iniDecode($content);
             break;
         default:
             echo('Unknown input format');
@@ -38,13 +38,13 @@ function startConvert($file, $formatOutput)
 
     switch ($formatOutput) {
         case 'json':
-            $result = arrToJson($arr);
+            $result = jsonEncode($arr);
             break;
         case 'yml':
-            $result = arrToYaml($arr);
+            $result = yamlEncode($arr);
             break;
         case 'ini':
-            $result = arrToIni($arr);
+            $result = iniEncode($arr);
             break;
         default:
             echo('Unknown output format');
