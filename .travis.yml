@@ -7,3 +7,6 @@ install:
   - make install
 
 script: make test lint
+
+after_success:
+  - travis_retry php vendor/bin/coveralls

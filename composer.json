@@ -16,7 +16,9 @@
     },
     "require-dev": {
         "phpunit/phpunit": "*",
-        "squizlabs/php_codesniffer": "2.*"
+        "squizlabs/php_codesniffer": "2.*",
+        "satooshi/php-coveralls": "1.0.1",
+        "codeclimate/php-test-reporter": "dev-master"
     },
     "autoload": {
         "files": [
@@ -26,5 +28,5 @@
             "src/Ini.php"
         ]
     },
-    "bin" : ["bin/Cenvert.php"]
+    "bin" : ["bin/Cenvert"]
 }
