@@ -8,12 +8,14 @@ use function File\getFileFormat;
 use function File\fileConvert;
 use function File\fileWrite;
 
-function startConvert($file, $formatOutput)
+function startConvert($fileInput, $fileOutput)
 {
-    $fileData = getFileContent($file);
-    $formatInput = getFileFormat($file);
-    $fileNameInput = getFileName($file);
-    $formatOutput = strtolower($formatOutput);
+    $fileData = getFileContent($fileInput);
+    $formatInput = getFileFormat($fileInput);
+    $fileNameInput = getFileName($fileInput);
+    $formatOutput = getFileFormat($fileOutput);
+    $fileNameOutput = getFileName($fileOutput);
     $convertedData = fileConvert($fileData, $formatInput, $formatOutput);
-    fileWrite($convertedData, $fileNameInput, $formatOutput);
+
+    fileWrite($convertedData, $fileOutput);
 }

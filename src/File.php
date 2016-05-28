@@ -4,22 +4,25 @@ namespace File;
 
 function getFileContent($file)
 {
-    return file_get_contents($file);
+    if(file_exists($file) && is_readable($file))
+    {
+        return file_get_contents($file);
+    }
 }
 
-function fileWrite($string, $fileName, $formatOutput)
+function fileWrite($string, $fileName)
 {
-    file_put_contents(__DIR__ . "/../OUT_$fileName.$formatOutput", $string);
+    file_put_contents(__DIR__ . "/../$fileName", $string);
 }
 
 function getFileName($file)
 {
-    return getFileNameAndExt($file)['fileName'];
+    return pathinfo($file, PATHINFO_FILENAME);
 }
 
 function getFileFormat($file)
 {
-    return getFileNameAndExt($file)['fileExt'];
+    return pathinfo($file, PATHINFO_EXTENSION);
 }
 
 function fileConvert($fileData, $formatInput, $formatOutput)
@@ -56,13 +59,4 @@ function fileConvert($fileData, $formatInput, $formatOutput)
             echo('Unknown output format');
             return 1;
     }
-}
-
-function getFileNameAndExt($file)
-{
-    $pattern = '/\/{0,1}(?P<fileName>[a-z0-9\s]+).(?P<fileExt>\w+)$/i';
-    $matches = [];
-    preg_match($pattern, $file, $matches);
-
-    return $matches;
 }
