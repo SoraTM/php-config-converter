@@ -14,12 +14,5 @@ function iniDecode($content)
 function iniEncode($arr)
 {
     $writer = new IniWriter();
-    $arr = array_map(function ($item) {
-        if (!is_array($item)) {
-            return array($item);
-        }
-        return $item;
-    }, $arr);
-
     return trim($writer->writeToString($arr));
 }
