@@ -1,4 +1,3 @@
-s
 install:
 	composer install
 
