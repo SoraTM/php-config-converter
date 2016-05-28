@@ -11,7 +11,7 @@ function getFileContent($file)
 
 function fileWrite($string, $fileName)
 {
-    file_put_contents(__DIR__ . "/../$fileName", $string);
+    file_put_contents($fileName, $string);
 }
 
 function getFileName($file)

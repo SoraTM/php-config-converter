@@ -18,7 +18,8 @@
         "phpunit/phpunit": "*",
         "squizlabs/php_codesniffer": "2.*",
         "satooshi/php-coveralls": "1.0.1",
-        "codeclimate/php-test-reporter": "dev-master"
+        "codeclimate/php-test-reporter": "dev-master",
+        "mikey179/vfsStream": "1.6.3"
     },
     "autoload": {
         "files": [
