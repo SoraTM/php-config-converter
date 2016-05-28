@@ -25,7 +25,8 @@
             "src/Converter.php",
             "src/Json.php",
             "src/Yaml.php",
-            "src/Ini.php"
+            "src/Ini.php",
+            "src/File.php"
         ]
     },
     "bin" : ["bin/Cenvert"]
