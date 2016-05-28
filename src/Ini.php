@@ -8,7 +8,7 @@ use Piwik\Ini\IniWriter;
 function iniDecode($content)
 {
     $reader = new IniReader();
-    return $reader->readString($content);
+    return $reader->readString($string);
 }
 
 function iniEncode($arr)
