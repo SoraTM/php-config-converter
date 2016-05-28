@@ -4,8 +4,7 @@ namespace File;
 
 function getFileContent($file)
 {
-    if(file_exists($file) && is_readable($file))
-    {
+    if (file_exists($file) && is_readable($file)) {
         return file_get_contents($file);
     }
 }
