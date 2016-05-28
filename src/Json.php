@@ -9,5 +9,5 @@ function jsonDecode($content)
 
 function jsonEncode($arr)
 {
-    return json_encode($arr, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "\n";
+    return trim(json_encode($arr, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 }

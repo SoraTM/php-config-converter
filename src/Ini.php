@@ -21,5 +21,5 @@ function iniEncode($arr)
         return $item;
     }, $arr);
 
-    return $writer->writeToString($arr);
+    return trim($writer->writeToString($arr));
 }

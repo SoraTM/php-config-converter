@@ -11,5 +11,5 @@ function yamlDecode($content)
 
 function yamlEncode($arr)
 {
-    return Yaml::dump($arr);
+    return trim(Yaml::dump($arr));
 }
