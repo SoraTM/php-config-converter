@@ -8,7 +8,7 @@ use function Yaml\yamlEncode;
 class YamlTest extends \PHPUnit_Framework_TestCase
 {
 
-    public function testJson()
+    public function testYaml()
     {
         $file = file_get_contents(__DIR__ . '/inputFiles/example.yml');
 
