@@ -31,4 +31,13 @@ class IniTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($arr, iniDecode($file));
         $this->assertEquals($file, iniEncode($arr));
     }
+
+    /**
+     * @expectedException Exception
+     */
+    public function testException()
+    {
+        $file = file_get_contents(__DIR__ . '/inputFiles/example.json');
+        iniDecode($file);
+    }
 }

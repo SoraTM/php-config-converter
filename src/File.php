@@ -26,7 +26,14 @@ function getFileFormat($file)
 
 function fileConvert($fileData, $formatInput, $formatOutput)
 {
-    return fileEncode(fileDecode($fileData, $formatInput), $formatOutput);
+    try {
+        $result = fileEncode(fileDecode($fileData, $formatInput), $formatOutput);
+    } catch (\Exception $e) {
+        echo  $e->getMessage() . PHP_EOL;
+        return 1;
+    }
+
+    return $result;
 }
 
 function fileDecode($fileData, $formatInput)

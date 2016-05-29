@@ -10,7 +10,7 @@ function yamlDecode($content)
     try {
         $value = Yaml::parse($content);
     } catch (ParseException $e) {
-        printf("Unable to parse the YAML string: %s", $e->getMessage());
+        throw new \Exception("Unable to parse the YAML string");
     }
 
     return $value;

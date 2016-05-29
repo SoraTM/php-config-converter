@@ -4,6 +4,11 @@ namespace Json;
 
 function jsonDecode($content)
 {
+    $result = json_decode($content, true);
+    if ($result === null) {
+        throw new \Exception("Unable to parse the JSON string");
+    }
+
     return json_decode($content, true);
 }
 

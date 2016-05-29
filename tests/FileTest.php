@@ -19,29 +19,29 @@ class FileTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->root = vfsStream::setup("dir");
-        $this->fileJson = "inputFiles/example.json";
-        $this->fileYaml = "inputFiles/example.yml";
-        $this->text = "some text";
+        $this->root = vfsStream::setup('dir');
+        $this->fileJson = 'inputFiles/example.json';
+        $this->fileYaml = 'inputFiles/example.yml';
+        $this->text = 'some text';
     }
 
     public function testFileNameAndExt()
     {
-        $this->assertEquals("example", getFileName($this->fileJson));
-        $this->assertEquals("json", getFileFormat($this->fileJson));
+        $this->assertEquals('example', getFileName($this->fileJson));
+        $this->assertEquals('json', getFileFormat($this->fileJson));
     }
 
     public function testFileWrite()
     {
-        fileWrite($this->string, vfsStream::url("dir") . DIRECTORY_SEPARATOR . "filename");
-        $this->assertTrue($this->root->hasChild("filename"));
+        fileWrite($this->string, vfsStream::url('dir') . DIRECTORY_SEPARATOR . 'filename');
+        $this->assertTrue($this->root->hasChild('filename'));
     }
 
     public function testFileGetFileContent()
     {
-        fileWrite($this->text, vfsStream::url("dir") . DIRECTORY_SEPARATOR . "filename");
-        $this->assertTrue($this->root->hasChild("filename"));
-        $this->assertEquals($this->text, getFileContent(vfsStream::url("dir/filename")));
+        fileWrite($this->text, vfsStream::url('dir') . DIRECTORY_SEPARATOR . 'filename');
+        $this->assertTrue($this->root->hasChild('filename'));
+        $this->assertEquals($this->text, getFileContent(vfsStream::url('dir/filename')));
     }
 
     public function testFileConvert()

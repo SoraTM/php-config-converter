@@ -4,10 +4,16 @@ namespace Ini;
 
 use Piwik\Ini\IniReader;
 use Piwik\Ini\IniWriter;
+use Piwik\Ini\IniReadingException;
 
 function iniDecode($content)
 {
-    $reader = new IniReader();
+    try {
+        $reader = new IniReader();
+    } catch (IniReadingException $e) {
+        throw new \Exception("Unable to parse the INI string");
+    }
+
     return $reader->readString($content);
 }
 
