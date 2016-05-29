@@ -26,33 +26,20 @@ function getFileFormat($file)
 
 function fileConvert($fileData, $formatInput, $formatOutput)
 {
-    switch ($formatInput) {
-        case 'json':
-            $fileDecoded = \Json\jsonDecode($fileData);
-            break;
-        case 'yml':
-            $fileDecoded = \Yaml\yamlDecode($fileData);
-            break;
-        case 'ini':
-            $fileDecoded = \Ini\iniDecode($fileData);
-            break;
-        default:
-            echo('Unknown input format');
-            return 1;
-    }
+    return fileEncode(fileDecode($fileData, $formatInput), $formatOutput);
+}
 
+function fileEncode($fileDecoded, $formatOutput)
+{
     switch ($formatOutput) {
         case 'json':
-            $string = \Json\jsonEncode($fileDecoded);
-            return $string;
+            return \Json\jsonEncode($fileDecoded);
             break;
         case 'yml':
-            $string = \Yaml\yamlEncode($fileDecoded);
-            return $string;
+            return \Yaml\yamlEncode($fileDecoded);
             break;
         case 'ini':
-            $string = \Ini\iniEncode($fileDecoded);
-            return $string;
+            return \Ini\iniEncode($fileDecoded);
             break;
         default:
             echo('Unknown output format');
