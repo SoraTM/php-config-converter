@@ -29,6 +29,24 @@ function fileConvert($fileData, $formatInput, $formatOutput)
     return fileEncode(fileDecode($fileData, $formatInput), $formatOutput);
 }
 
+function fileDecode($fileData, $formatInput)
+{
+    switch ($formatInput) {
+        case 'json':
+            return \Json\jsonDecode($fileData);
+            break;
+        case 'yml':
+            return \Yaml\yamlDecode($fileData);
+            break;
+        case 'ini':
+            return \Ini\iniDecode($fileData);
+            break;
+        default:
+            echo('Unknown input format');
+            return 1;
+    }
+}
+
 function fileEncode($fileDecoded, $formatOutput)
 {
     switch ($formatOutput) {
