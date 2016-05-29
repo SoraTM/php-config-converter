@@ -2,11 +2,17 @@
 
 namespace Yaml;
 
-use Symfony\Component\Yaml\Yaml;
+use Symfony\Component\Yaml;
 
 function yamlDecode($content)
 {
-    return Yaml::parse($content);
+    try {
+        $value = Yaml\Yaml::parse($content);
+    } catch (Exception\ParseException $e) {
+        printf("Unable to parse the YAML string: %s", $e->getMessage());
+    }
+    
+    //return $value;
 }
 
 function yamlEncode($arr)
