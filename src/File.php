@@ -7,6 +7,9 @@ function getFileContent($file)
     if (file_exists($file) && is_readable($file)) {
         return file_get_contents($file);
     }
+
+    echo "File not exist or not readable" . PHP_EOL;
+    return 1;
 }
 
 function fileWrite($string, $fileName)
