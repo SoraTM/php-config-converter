@@ -8,8 +8,9 @@ use Piwik\Ini\IniReadingException;
 
 function iniDecode($content)
 {
+    $reader = new IniReader();
     try {
-        $reader = new IniReader();
+        $result =  $reader->readString($content);
     } catch (IniReadingException $e) {
         throw new \Exception("Unable to parse the INI string");
     }
