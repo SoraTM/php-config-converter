@@ -9,7 +9,7 @@ function jsonDecode($content)
         throw new \Exception("Unable to parse the JSON string");
     }
 
-    return json_decode($content, true);
+    return $result;
 }
 
 function jsonEncode($arr)

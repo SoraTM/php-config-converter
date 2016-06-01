@@ -5,4 +5,9 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 
 use function Converter\startConvert;
 
-startConvert($argv[1], $argv[2]);
+try {
+    startConvert($argv[1], $argv[2]);
+} catch (\Exception $e) {
+    echo  $e->getMessage() . PHP_EOL;
+    exit(1);
+}

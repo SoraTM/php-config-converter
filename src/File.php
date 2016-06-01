@@ -6,10 +6,9 @@ function getFileContent($file)
 {
     if (file_exists($file) && is_readable($file)) {
         return file_get_contents($file);
+    } else {
+        throw new \Exception("Unable to read file or not exist");
     }
-
-    echo "File not exist or not readable" . PHP_EOL;
-    return 1;
 }
 
 function fileWrite($string, $fileName)
@@ -29,14 +28,7 @@ function getFileFormat($file)
 
 function fileConvert($fileData, $formatInput, $formatOutput)
 {
-    try {
-        $result = fileEncode(fileDecode($fileData, $formatInput), $formatOutput);
-    } catch (\Exception $e) {
-        echo  $e->getMessage() . PHP_EOL;
-        return 1;
-    }
-
-    return $result;
+    return fileEncode(fileDecode($fileData, $formatInput), $formatOutput);
 }
 
 function fileDecode($fileData, $formatInput)
