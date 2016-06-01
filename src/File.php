@@ -35,13 +35,13 @@ function fileDecode($fileData, $formatInput)
 {
     switch ($formatInput) {
         case 'json':
-            return \Json\jsonDecode($fileData);
+            return \Json\decode($fileData);
             break;
         case 'yml':
-            return \Yaml\yamlDecode($fileData);
+            return \Yaml\decode($fileData);
             break;
         case 'ini':
-            return \Ini\iniDecode($fileData);
+            return \Ini\decode($fileData);
             break;
         default:
             echo('Unknown input format');
@@ -53,13 +53,13 @@ function fileEncode($fileDecoded, $formatOutput)
 {
     switch ($formatOutput) {
         case 'json':
-            return \Json\jsonEncode($fileDecoded);
+            return \Json\encode($fileDecoded);
             break;
         case 'yml':
-            return \Yaml\yamlEncode($fileDecoded);
+            return \Yaml\encode($fileDecoded);
             break;
         case 'ini':
-            return \Ini\iniEncode($fileDecoded);
+            return \Ini\encode($fileDecoded);
             break;
         default:
             echo('Unknown output format');

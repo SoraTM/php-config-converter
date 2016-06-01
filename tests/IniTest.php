@@ -2,8 +2,8 @@
 
 namespace Ini\Tests;
 
-use function Ini\iniDecode;
-use function Ini\iniEncode;
+use function Ini\decode;
+use function Ini\encode;
 
 class IniTest extends \PHPUnit_Framework_TestCase
 {
@@ -28,8 +28,8 @@ class IniTest extends \PHPUnit_Framework_TestCase
             ]
         ];
 
-        $this->assertEquals($arr, iniDecode($file));
-        $this->assertEquals($file, iniEncode($arr));
+        $this->assertEquals($arr, decode($file));
+        $this->assertEquals($file, encode($arr));
     }
 
     /**
@@ -38,6 +38,6 @@ class IniTest extends \PHPUnit_Framework_TestCase
     public function testException()
     {
         $file = file_get_contents(__DIR__ . '/inputFiles/example.json');
-        iniDecode($file);
+        decode($file);
     }
 }

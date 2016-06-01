@@ -5,18 +5,12 @@ namespace Yaml;
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
-function yamlDecode($content)
+function decode($content)
 {
-    try {
-        $value = Yaml::parse($content);
-    } catch (ParseException $e) {
-        throw new \Exception("Unable to parse the YAML string");
-    }
-
-    return $value;
+    return Yaml::parse($content);
 }
 
-function yamlEncode($arr)
+function encode($arr)
 {
     return trim(Yaml::dump($arr));
 }

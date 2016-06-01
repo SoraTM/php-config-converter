@@ -2,8 +2,8 @@
 
 namespace Yaml\Tests;
 
-use function Yaml\yamlDecode;
-use function Yaml\yamlEncode;
+use function Yaml\decode;
+use function Yaml\encode;
 
 class YamlTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,8 +21,8 @@ class YamlTest extends \PHPUnit_Framework_TestCase
             'role' => 'Developer' ]
         ]];
 
-        $this->assertEquals($arr, yamlDecode($file));
-        $this->assertEquals($file, yamlEncode($arr));
+        $this->assertEquals($arr, decode($file));
+        $this->assertEquals($file, encode($arr));
     }
 
     /**
@@ -31,6 +31,6 @@ class YamlTest extends \PHPUnit_Framework_TestCase
     public function testException()
     {
         $file = file_get_contents(__DIR__ . '/inputFiles/example.json');
-        yamlDecode($file);
+        decode($file);
     }
 }

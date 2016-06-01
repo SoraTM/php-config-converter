@@ -2,8 +2,8 @@
 
 namespace Json\Tests;
 
-use function Json\jsonDecode;
-use function Json\jsonEncode;
+use function Json\decode;
+use function Json\encode;
 
 class JsonTest extends \PHPUnit_Framework_TestCase
 {
@@ -25,8 +25,8 @@ class JsonTest extends \PHPUnit_Framework_TestCase
             ]
         ];
 
-        $this->assertEquals($arr, jsonDecode($file));
-        $this->assertEquals($file, jsonEncode($arr));
+        $this->assertEquals($arr, decode($file));
+        $this->assertEquals($file, encode($arr));
     }
 
     /**
@@ -35,6 +35,6 @@ class JsonTest extends \PHPUnit_Framework_TestCase
     public function testException()
     {
         $file = file_get_contents(__DIR__ . '/inputFiles/example.yml');
-        jsonDecode($file);
+        decode($file);
     }
 }
