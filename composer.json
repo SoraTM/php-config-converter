@@ -25,6 +25,7 @@
         "files": [
             "src/Converter.php",
             "src/File.php",
+            "src/CodecsInit.php",
             "src/Codecs/Ini.php",
             "src/Codecs/Json.php",
             "src/Codecs/Yaml.php"

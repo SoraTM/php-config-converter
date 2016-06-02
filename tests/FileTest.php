@@ -9,6 +9,7 @@ use function File\getFileFormat;
 use function File\fileWrite;
 use function File\getFileContent;
 use function File\fileConvert;
+use function Converter\Codecs\codecsInit;
 
 class FileTest extends \PHPUnit_Framework_TestCase
 {
@@ -48,6 +49,6 @@ class FileTest extends \PHPUnit_Framework_TestCase
     {
         $contentJson = getFileContent(__DIR__ . DIRECTORY_SEPARATOR . $this->fileJson);
         $contentYaml = getFileContent(__DIR__ . DIRECTORY_SEPARATOR . $this->fileYaml);
-        $this->assertEquals($contentYaml, fileConvert($contentJson, 'json', 'yml'));
+        $this->assertEquals($contentYaml, fileConvert($contentJson, 'json', 'yml', codecsInit()));
     }
 }

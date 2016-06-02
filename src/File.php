@@ -26,35 +26,17 @@ function getFileFormat($file)
     return pathinfo($file, PATHINFO_EXTENSION);
 }
 
-function fileConvert($fileData, $formatInput, $formatOutput)
+function fileConvert($fileData, $formatInput, $formatOutput, $coders)
 {
-    return fileEncode(fileDecode($fileData, $formatInput), $formatOutput);
+    return fileEncode(fileDecode($fileData, $formatInput, $coders), $formatOutput, $coders);
 }
 
-function fileDecode($fileData, $formatInput)
+function fileDecode($fileData, $formatInput, $coders)
 {
-    return call_user_func(fileInitCodecs()[$formatInput]['decode'], $fileData);
+    return call_user_func($coders[$formatInput]['decode'], $fileData);
 }
 
-function fileEncode($fileDecoded, $formatOutput)
+function fileEncode($fileDecoded, $formatOutput, $coders)
 {
-    return call_user_func(fileInitCodecs()[$formatOutput]['encode'], $fileDecoded);
-}
-
-function fileInitCodecs()
-{
-    return [
-        \Converter\Codecs\Json\getSupportedFormat() => [
-            'encode' => '\Converter\Codecs\Json\encode',
-            'decode' => '\Converter\Codecs\Json\decode'
-        ],
-        \Converter\Codecs\Yaml\getSupportedFormat() => [
-            'encode' => '\Converter\Codecs\Yaml\encode',
-            'decode' => '\Converter\Codecs\Yaml\decode'
-        ],
-        \Converter\Codecs\Ini\getSupportedFormat() => [
-            'encode' => '\Converter\Codecs\Yaml\encode',
-            'decode' => '\Converter\Codecs\Ini\decode'
-        ]
-    ];
+    return call_user_func($coders[$formatOutput]['encode'], $fileDecoded);
 }

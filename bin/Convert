@@ -4,9 +4,10 @@
 require_once(__DIR__ . '/../vendor/autoload.php');
 
 use function Converter\startConvert;
+use function Converter\Codecs\codecsInit;
 
 try {
-    startConvert($argv[1], $argv[2]);
+    startConvert($argv[1], $argv[2], codecsInit());
 } catch (\Exception $e) {
     echo  $e->getMessage() . PHP_EOL;
     exit(1);
