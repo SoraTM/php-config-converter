@@ -1,6 +1,6 @@
 <?php
 
-namespace Ini;
+namespace Converter\Codecs\Ini;
 
 use Piwik\Ini\IniReader;
 use Piwik\Ini\IniWriter;
@@ -16,4 +16,9 @@ function encode($arr)
 {
     $writer = new IniWriter();
     return trim($writer->writeToString($arr));
+}
+
+function getSupportedFormat()
+{
+    return 'ini';
 }

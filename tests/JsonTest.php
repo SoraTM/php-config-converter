@@ -1,9 +1,10 @@
 <?php
 
-namespace Json\Tests;
+namespace Converter\Codecs\Json\Tests;
 
-use function Json\decode;
-use function Json\encode;
+use function Converter\Codecs\Json\decode;
+use function Converter\Codecs\Json\encode;
+use function Converter\Codecs\Json\getSupportedFormat;
 
 class JsonTest extends \PHPUnit_Framework_TestCase
 {
@@ -27,6 +28,7 @@ class JsonTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($arr, decode($file));
         $this->assertEquals($file, encode($arr));
+        $this->assertEquals('json', getSupportedFormat());
     }
 
     /**

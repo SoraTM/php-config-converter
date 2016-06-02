@@ -1,9 +1,10 @@
 <?php
 
-namespace Yaml\Tests;
+namespace Converter\Codecs\Yaml\Tests;
 
-use function Yaml\decode;
-use function Yaml\encode;
+use function Converter\Codecs\Yaml\decode;
+use function Converter\Codecs\Yaml\encode;
+use function Converter\Codecs\Yaml\getSupportedFormat;
 
 class YamlTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,6 +24,7 @@ class YamlTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($arr, decode($file));
         $this->assertEquals($file, encode($arr));
+        $this->assertEquals('yml', getSupportedFormat());
     }
 
     /**

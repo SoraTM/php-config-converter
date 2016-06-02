@@ -33,36 +33,28 @@ function fileConvert($fileData, $formatInput, $formatOutput)
 
 function fileDecode($fileData, $formatInput)
 {
-    switch ($formatInput) {
-        case 'json':
-            return \Json\decode($fileData);
-            break;
-        case 'yml':
-            return \Yaml\decode($fileData);
-            break;
-        case 'ini':
-            return \Ini\decode($fileData);
-            break;
-        default:
-            echo('Unknown input format');
-            return 1;
-    }
+    return call_user_func(fileInitCodecs()[$formatInput]['decode'], $fileData);
 }
 
 function fileEncode($fileDecoded, $formatOutput)
 {
-    switch ($formatOutput) {
-        case 'json':
-            return \Json\encode($fileDecoded);
-            break;
-        case 'yml':
-            return \Yaml\encode($fileDecoded);
-            break;
-        case 'ini':
-            return \Ini\encode($fileDecoded);
-            break;
-        default:
-            echo('Unknown output format');
-            return 1;
-    }
+    return call_user_func(fileInitCodecs()[$formatOutput]['encode'], $fileDecoded);
+}
+
+function fileInitCodecs()
+{
+    return [
+        \Converter\Codecs\Json\getSupportedFormat() => [
+            'encode' => '\Converter\Codecs\Json\encode',
+            'decode' => '\Converter\Codecs\Json\decode'
+        ],
+        \Converter\Codecs\Yaml\getSupportedFormat() => [
+            'encode' => '\Converter\Codecs\Yaml\encode',
+            'decode' => '\Converter\Codecs\Yaml\decode'
+        ],
+        \Converter\Codecs\Ini\getSupportedFormat() => [
+            'encode' => '\Converter\Codecs\Yaml\encode',
+            'decode' => '\Converter\Codecs\Ini\decode'
+        ]
+    ];
 }

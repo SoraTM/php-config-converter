@@ -1,6 +1,6 @@
 <?php
 
-namespace Json;
+namespace Converter\Codecs\Json;
 
 function decode($content)
 {
@@ -16,4 +16,9 @@ function decode($content)
 function encode($arr)
 {
     return trim(json_encode($arr, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+}
+
+function getSupportedFormat()
+{
+    return 'json';
 }

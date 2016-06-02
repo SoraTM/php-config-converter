@@ -1,9 +1,10 @@
 <?php
 
-namespace Ini\Tests;
+namespace Converter\Codecs\Ini\Tests;
 
-use function Ini\decode;
-use function Ini\encode;
+use function Converter\Codecs\Ini\decode;
+use function Converter\Codecs\Ini\encode;
+use function Converter\Codecs\Ini\getSupportedFormat;
 
 class IniTest extends \PHPUnit_Framework_TestCase
 {
@@ -30,6 +31,7 @@ class IniTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($arr, decode($file));
         $this->assertEquals($file, encode($arr));
+        $this->assertEquals('ini', getSupportedFormat());
     }
 
     /**

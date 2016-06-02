@@ -24,10 +24,10 @@
     "autoload": {
         "files": [
             "src/Converter.php",
-            "src/Json.php",
-            "src/Yaml.php",
-            "src/Ini.php",
-            "src/File.php"
+            "src/File.php",
+            "src/Codecs/Ini.php",
+            "src/Codecs/Json.php",
+            "src/Codecs/Yaml.php"
         ]
     },
     "bin" : ["bin/Cenvert"]

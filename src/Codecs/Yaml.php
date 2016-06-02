@@ -1,6 +1,6 @@
 <?php
 
-namespace Yaml;
+namespace Converter\Codecs\Yaml;
 
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
@@ -13,4 +13,9 @@ function decode($content)
 function encode($arr)
 {
     return trim(Yaml::dump($arr));
+}
+
+function getSupportedFormat()
+{
+    return 'yml';
 }
